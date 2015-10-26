@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "Mindful Moments",
+  "description": "This extension reminds the user to occasionally take mindful breaks",
+  "version": "1.0",
+
+  // "browser_action": {
+  //   "default_icon": "images/icon.png",
+  //   "default_popup": "popup.html"
+  // },
+
+  "options_page": "options.html",
+
+  "background" : {
+  	"scripts" : ["eventPage.js"],
+    "persistent": false
+  },
+
+  "permissions" : [
+  	"alarms"
+  ]
+}

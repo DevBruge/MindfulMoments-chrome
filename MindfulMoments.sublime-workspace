@@ -1,0 +1,348 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"success",
+				"successMessage"
+			],
+			[
+				"my",
+				"myTextElement"
+			],
+			[
+				"curren",
+				"currenCode"
+			],
+			[
+				"cc",
+				"currenCode"
+			],
+			[
+				"conver",
+				"convertedCode"
+			],
+			[
+				"curre",
+				"currenCode"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 97.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"view i",
+				"View In Browser"
+			],
+			[
+				"tsb",
+				"View: Toggle Side Bar"
+			],
+			[
+				"side bar",
+				"View: Toggle Side Bar"
+			],
+			[
+				"project sav",
+				"Project: Save As"
+			],
+			[
+				"package list ",
+				"Package Control: List Packages"
+			],
+			[
+				"remov",
+				"Package Control: Remove Repository"
+			],
+			[
+				"list",
+				"Package Control: Remove Repository"
+			],
+			[
+				"reposi",
+				"Package Control: Add Repository"
+			],
+			[
+				"package list",
+				"Package Control: List Packages"
+			],
+			[
+				"package repo",
+				"Package Control: Add Repository"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"install pac",
+				"Package Control: Install Package"
+			],
+			[
+				"packe",
+				"Package Control: List Packages"
+			],
+			[
+				"ssjson",
+				"Set Syntax: JSON"
+			],
+			[
+				"ssh",
+				"Set Syntax: HTML"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/todo.txt",
+		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/manifest.json",
+		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/eventPage.js",
+		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/options.html",
+		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/background.js",
+		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/popup.html",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/src/popup.css",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/src/popup.js",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/src/eventPage.js",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/src/manifest.json",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/src/popup.html",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/todo.txt",
+		"/home/mj/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/mj/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/Rot13.sublime-project",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/popup.html",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/popup.js",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/popup.css",
+		"/home/mj/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/manifest.json",
+		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/icon.png",
+		"/home/mj/Documents/_dev/helloSublime/index.html",
+		"/home/mj/Documents/_dev/helloSublime/index.js",
+		"/home/mj/Documents/_dev/helloSublime/untitled.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"console",
+			"(\"-------------------\");",
+			"reinden",
+			"successMessage",
+			"feedbackMessage",
+			"successElement",
+			"successMessage",
+			"diff",
+			"currenCode"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "MindfulMoments.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pop",
+				"src/popup.js"
+			],
+			[
+				"man",
+				"src/manifest.json"
+			],
+			[
+				".css",
+				"src/popup.css"
+			],
+			[
+				".html",
+				"popup.html"
+			],
+			[
+				".js",
+				"popup.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Documents/_dev/Chrome Extensions/Rot13/Rot13.sublime-project"
+			],
+			[
+				"conf",
+				"~/Documents/_dev/Chrome Extensions/Rot13/config view.sublime-workspace"
+			],
+			[
+				"rot",
+				"~/Documents/_dev/Chrome Extensions/Rot13/code view.sublime-workspace"
+			],
+			[
+				"rot confi",
+				"~/Documents/_dev/Chrome Extensions/Rot13/config view.sublime-workspace"
+			],
+			[
+				"config",
+				"~/Documents/_dev/Chrome Extensions/Rot13/config view.sublime-workspace"
+			],
+			[
+				"kendo",
+				"~/Documents/_dev/KendoWorking/KendoWorking.sublime-project"
+			],
+			[
+				"confi",
+				"~/Documents/_dev/Chrome Extensions/Rot13/config view.sublime-workspace"
+			],
+			[
+				"code",
+				"~/Documents/_dev/Chrome Extensions/Rot13/code view.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		]
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 183.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 3
+	}
+}
