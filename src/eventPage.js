@@ -17,12 +17,10 @@ function checkAlarms(isInitial) {
 		if(alarms && alarms.length > 0) {
 
 			for(var i=0; i<alarms.length; i++) {
-				// alert(prefix + "alarm" + i.toString() + ": " + JSON.stringify(alarms[i]));
 				var theName = alarms[i].name;
 				var scheduled = (Date.now() - alarms[i].scheduledTime)/1000;
 				scheduled = Math.abs(Math.floor(scheduled));
 
-				// alert(prefix + "alarm" + i.toString() + " - name:" + theName + ", scheduled: " + scheduled);
 				console.log(prefix + "name:" + theName + ", scheduled: " + scheduled);
 			}
 
