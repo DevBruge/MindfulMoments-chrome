@@ -1,4 +1,8 @@
 
+/** CONSTANTS **/
+const ALARM_NAME = "mindfulMoments";
+
+
 /** HELPER METHODS **/
 
 //returns a random integer between @min and @max
@@ -42,7 +46,7 @@ function createAlarm(isInitial) {
 		"delayInMinutes": delay
 	};
 
-	chrome.alarms.create('mindfulMoments', alarmInfo);
+	chrome.alarms.create(ALARM_NAME, alarmInfo);
 };
 
 
@@ -53,7 +57,7 @@ createAlarm(true);
 checkAlarms(true);
 
 function alarmHandler(alarm) {
-	if(alarm.name == "mindfulMoments") {
+	if(alarm.name == ALARM_NAME) {
 		
 		//now that the only alarm has run, there is no longer an alarm active,
 		//so we create a new alarm in its place
