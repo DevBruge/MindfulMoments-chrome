@@ -1,61 +1,66 @@
 
-// // alert('start');
-// var millisecondsToWait = 2000;
-// var counter = 5;
-// for(var i = 0; i < counter; i++) {
+/** HELPER METHODS **/
 
-// 	setTimeout(function() {
-// 	    alert('hello world ' + i);
-// 	}, millisecondsToWait);
-// }
+//returns a random integer between @min and @max
+function randomIntFromInterval(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
 
-// alert('finish');
+//prints to the console every alarm that is currently set (name and delay in seconds)
+function checkAlarms(isInitial) {
+	
+	chrome.alarms.getAll(function(alarms) {
 
-function getRandomNumberOfMinutes(){
-	// return Math.floor((Math.random() * 10) + 1);
-	//var time = Math.random();
-	var time = 0.1;
-	alert(time);
-	return time;
+		var prefix = isInitial ? "**INITIAL- " : "";
+
+		if(alarms && alarms.length > 0) {
+
+			for(var i=0; i<alarms.length; i++) {
+				// alert(prefix + "alarm" + i.toString() + ": " + JSON.stringify(alarms[i]));
+				var theName = alarms[i].name;
+				var scheduled = (Date.now() - alarms[i].scheduledTime)/1000;
+				scheduled = Math.abs(Math.floor(scheduled));
+
+				// alert(prefix + "alarm" + i.toString() + " - name:" + theName + ", scheduled: " + scheduled);
+				console.log(prefix + "name:" + theName + ", scheduled: " + scheduled);
+			}
+
+		} else {
+			console.log(prefix + 'no alarms currently defined');
+		}
+	});
 };
 
-function getRandomNumberOfMinutes2(){
-	// return Math.floor((Math.random() * 10) + 1);
-	//var time = Math.random();
-	var time = 0.2;
-	alert(time);
-	return time;
+//creates an alarm using a random delay (optionally allowing the caller to distinguish
+//between the initially set alarm and subsequent ones)
+function createAlarm(isInitial) {
+	
+	//if initial alarm then returns 0.1 or 0.2 which are equivalent to 6 or 12 seconds
+	//else, returns 0.15 or 0.25 which are equivalent to 9 or 15 seconds
+	var delay = isInitial ? (randomIntFromInterval(1,2)/10) : (randomIntFromInterval(2,3)/10 - 0.05);
+
+	var alarmInfo = {
+		"delayInMinutes": delay
+	};
+
+	chrome.alarms.create('mindfulMoments', alarmInfo);
 };
 
-var alarmInfo = {
-	// "when": Date.now() + 10000,
-	"delayInMinutes": getRandomNumberOfMinutes()
-	// "periodInMinutes": 0.1
-};
 
-chrome.alarms.create('mindfulMoments', alarmInfo);
+/** RUN THE CODE **/
+
+//create the initial alarm (and print its details to the console)
+createAlarm(true);
+checkAlarms(true);
 
 function alarmHandler(alarm) {
 	if(alarm.name == "mindfulMoments") {
-		alert("take a breather, brugge!");
-		//var userResponse = alert("take a breather, brugge!");
-		// alert('user response is ' + userResponse);
-
-		chrome.alarms.clear("mindfulMoments", function(wasCleared) {
-			if(wasCleared){
-				var alarmInfo2 = {
-					// "when": Date.now() + 10000,
-					"delayInMinutes": getRandomNumberOfMinutes2()
-					// "periodInMinutes": 0.1
-				};
-
-				chrome.alarms.create('mindfulMoments', alarmInfo2);
-			}
-			else
-			{
-				alert('not cleared???');
-			}
-		});
+		
+		//now that the only alarm has run, there is no longer an alarm active,
+		//so we create a new alarm in its place
+		createAlarm(false);
+		checkAlarms(false);
 	}
 };
 
