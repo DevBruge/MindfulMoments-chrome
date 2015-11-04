@@ -31,22 +31,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "src/manifest.json",
-			"settings":
-			{
-				"buffer_size": 433,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "TODO.md",
-			"settings":
-			{
-				"buffer_size": 631,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -149,12 +133,12 @@
 	],
 	"file_history":
 	[
+		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/manifest.json",
 		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/eventPage.js",
 		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/options.html",
 		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/popup.html",
 		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/MindfulMoments.sublime-project",
 		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/todo.txt",
-		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/manifest.json",
 		"/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/src/background.js",
 		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/src/popup.css",
 		"/home/mj/Documents/_dev/Chrome Extensions/Rot13/src/popup.js",
@@ -217,67 +201,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "src/manifest.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 433,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								180,
-								180
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "TODO.md",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 631,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								630,
-								630
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Markdown/Markdown.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -317,7 +242,7 @@
 		"height": 0.0
 	},
 	"pinned_build_system": "",
-	"project": "MindfulMoments.sublime-project",
+	"project": "/home/mj/Documents/_dev/Chrome Extensions/MindfulMoments/MindfulMoments.sublime-project",
 	"replace":
 	{
 		"height": 48.0
@@ -355,12 +280,16 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "dark cod",
+		"last_filter": "mind code",
 		"selected_items":
 		[
 			[
-				"dark cod",
-				"~/Documents/_dev/Chrome Extensions/Wikipedia-Dark/code view.sublime-workspace"
+				"mind code",
+				"~/Documents/_dev/Chrome Extensions/MindfulMoments/code view.sublime-workspace"
+			],
+			[
+				"code min",
+				"~/Documents/_dev/Chrome Extensions/MindfulMoments/code view.sublime-workspace"
 			],
 			[
 				"",
