@@ -2,8 +2,36 @@
 <html>
 <head>
 	<title>Mindful Moments - Options</title>
+	<script src="options.js">
+	</script>
 </head>
 <body>
-	
+	<h1 id="OptionsTitle">Mindful Moments Options</h1>
+	Notification Options</br>
+	<form>
+		<input type="radio" name="notify" value="notification"> Chrome Notification 
+		</br>
+		<input type="radio" name="notify" value="alert"> Popup Alert
+	</form>
+	</br>
+
+	Sound Options</br>
+	<input type="checkbox" name="sound" value="soundEnabled">Enable
+	</br></br>
+
+	List of messages to be displayed</br>
+	<select size="6" multiple="multiple" id="listboxMsgs">
+		<option>Time to get up and stretch</option>
+		<option>Sit up straight</option>
+		<option>Take a short walk</option>
+		<option>Staying hydrated is important</option>
+	</select>
+	</br>
+	<input type="button" onclick="addMsg()" value="Add Message">
+	<input type="button" onclick="remMsg()" value="Rem Message">
+	</br>
+	<input type="text" id="textboxMsg">
+	</br></br>
+
 </body>
 </html>
