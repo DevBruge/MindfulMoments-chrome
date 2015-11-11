@@ -9,14 +9,14 @@
 	<h1 id="OptionsTitle">Mindful Moments Options</h1>
 	Notification Options</br>
 	<form>
-		<input type="radio" name="notify" value="notification"> Chrome Notification 
+		<input name="notify" type="radio" value="notification" checked="checked"> Chrome Notification 
 		</br>
-		<input type="radio" name="notify" value="alert"> Popup Alert
+		<input name="notify" type="radio" value="alert"> Popup Alert
 	</form>
 	</br>
 
 	Sound Options</br>
-	<input type="checkbox" name="sound" value="soundEnabled">Enable
+	<input id="sound" type="checkbox" value="soundEnabled" checked="checked">Enable
 	</br></br>
 
 	List of messages to be displayed</br>
@@ -27,11 +27,11 @@
 		<option>Staying hydrated is important</option>
 	</select>
 	</br>
-	<input type="button" onclick="addMsg()" value="Add Message">
-	<input type="button" onclick="remMsg()" value="Rem Message">
+	<input id="add" type="submit" value="Add Message">
+	<input id="rem" type="submit" value="Rem Message">
 	</br>
 	<input type="text" id="textboxMsg">
-	</br></br>
-
+	</br></br></br>
+	<input id="save" type="submit" value="Save">
 </body>
 </html>
