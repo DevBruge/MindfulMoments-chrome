@@ -1,9 +1,4 @@
-/***********************
- * TO DO
- * - load default options into storage at first
- *
- */
-
+document.addEventListener('DOMContentLoaded', restoreOptions);
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("add").addEventListener("click", addMsg);
 });
@@ -13,6 +8,11 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("save").addEventListener("click", saveOptions);
 });
+
+var saMsgsDefault = [	"Time to get up and stretch",
+						"Sit up straight",
+						"Take a short walk",
+						"Staying hydrated is important" ]
 
 // Add messages to the list box. This list is what will be displayed
 // at random times as mindful moments
@@ -44,6 +44,9 @@ function remMsg(){
 	}
 }
 
+// Saves all of the options set
+// NOTE: 	In future chrome extensions add listener and save items on change
+// 			as most google applications currently function
 function saveOptions(){
 	var bChromeNotificationEnabled = document.getElementsByName('notify')[0].checked;
 	var bSoundEnabled = document.getElementById('sound').checked;
@@ -55,17 +58,23 @@ function saveOptions(){
 		saMsgs.push(optionsMsgs[i].value);
 	};
 
-	chrome.storage.sync.set({'notifyOption': bChromeNotificationEnabled}, function() {
+	chrome.storage.sync.set({'notifyOption': bChromeNotificationEnabled, 'soundOption': bSoundEnabled, 'mindfulMessages': saMsgs}, function() {
+        // Debug output to console
         console.log("SET: The notification option value stored is: " + bChromeNotificationEnabled);
-    });
-    chrome.storage.sync.set({'soundOption': bSoundEnabled}, function() {
         console.log("SET: The sound option value stored is: " + bSoundEnabled);
-    });
-    chrome.storage.sync.set({'mindfulMessages': saMsgs}, function() {
         console.log("SET: The current mindful message count is: " + saMsgs.length);
+
+        // Update status to let user know options were saved.
+	    var status = document.getElementById('status');
+	    status.textContent = 'Options saved.';
+
+	    // Eventually blank the status message
+	    setTimeout(function() {
+	      status.textContent = '';
+	    }, 750);
     });
 
-	//Test for get    
+	//Debug output to console    
     chrome.storage.sync.get(['notifyOption','soundOption','mindfulMessages'], function (items) {
     	console.log("GET: The notification option value retreived is: " + items.notifyOption);
         console.log("GET: The sound option value retreived is: " + items.soundOption);
@@ -74,4 +83,16 @@ function saveOptions(){
         	console.log("GET: Mindful message #" + (i+1) + ": " + items.mindfulMessages[i]);
         };
     });
+}
+
+// Ensured that the options page is loaded with the last saved values
+function restoreOptions(){
+	chrome.storage.sync.get({ 'notifyOption': true, 'soundOption': true, 'mindfulMessages': saMsgsDefault }, function(items) {
+		document.getElementsByName('notify')[0].checked = items.notifyOption;
+		document.getElementsByName('notify')[1].checked = !items.notifyOption;
+		document.getElementById('sound').checked = items.soundOption;
+		for (var i = 0; i < items.mindfulMessages.length; i++) {
+			document.getElementById('listboxMsgs').add(new Option(items.mindfulMessages[i], items.mindfulMessages[i]))
+        };
+	});
 }
