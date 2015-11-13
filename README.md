@@ -19,7 +19,7 @@ This extension reminds the user to occasionally take mindful breaks.
   d. enriched notifications > Chris
   e. add time interval options page (notify me every x mins (+ or - y mins)) (make user friendly) > Chris
   f. find 1 zen picutre > Mei-Yan/Chris
-  g. find 1 zen sound > Rami/MJ
+  g. find 1 zen sound > Rami/MJ 
 
 ####Features parking lot:
 - don't let alerts/notifications pile up if user is not at desk
