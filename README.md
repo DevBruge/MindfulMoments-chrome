@@ -26,3 +26,4 @@ This extension reminds the user to occasionally take mindful breaks.
 - JS namespacing
 - find multiple zen picures, choose randomly
 - finding multiple zen sounds, choose randomly
+- update JavaScript styling of options and notifications pages
