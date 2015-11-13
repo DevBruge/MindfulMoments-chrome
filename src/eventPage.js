@@ -49,6 +49,51 @@ function createAlarm(isInitial) {
 	chrome.alarms.create(ALARM_NAME, alarmInfo);
 };
 
+function NotifyWithConsole() {
+	console.log("Hey man, take a break and be mindful!!");
+}
+
+function NotifyWithAlert() {
+	alert("Hey man, take a break and be mindful!!");
+}
+
+function NotifyWithNotificationAPI() {
+	var opt = {
+		type: "basic",
+		title: "Mindful Moments",
+		message: "Hey man, take a break and be mindful!!",
+		iconUrl: "images/icon.png"
+	};
+
+	chrome.notifications.create("takeBreak", opt, function () {});
+}
+
+function NotifyWithSound() {
+	var audio = new Audio('sounds/Taito_Carousel.wav');
+	audio.play();
+}
+
+function NotifyUserOfMindfulBreak() {
+
+	//get notification Type from the user's set OPTIONS or use DEFAULT
+	var notificationType = "sound";
+
+	switch (notificationType) {
+		case "alert":
+			NotifyWithAlert();
+			break;
+		case "notificationAPI":
+			NotifyWithNotificationAPI();
+			break;
+		case "sound":
+			NotifyWithSound();
+			break;
+		default:
+			NotifyWithConsole();
+			break;
+	}
+}
+
 
 /** RUN THE CODE **/
 
@@ -59,6 +104,8 @@ checkAlarms(true);
 function alarmHandler(alarm) {
 	if(alarm.name == ALARM_NAME) {
 		
+		NotifyUserOfMindfulBreak();
+
 		//now that the only alarm has run, there is no longer an alarm active,
 		//so we create a new alarm in its place
 		createAlarm(false);
