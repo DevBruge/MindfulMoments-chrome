@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("save").addEventListener("click", saveOptions);
 });
 
-var saMsgsDefault = [	"Time to get up and stretch",
-						"Sit up straight",
-						"Take a short walk",
-						"Staying hydrated is important" ]
+var saMsgsDefault = [
+	"Time to get up and stretch",
+	"Sit up straight",
+	"Take a short walk",
+	"Staying hydrated is important"
+];
 
 // Add messages to the list box. This list is what will be displayed
 // at random times as mindful moments
@@ -58,7 +60,13 @@ function saveOptions(){
 		saMsgs.push(optionsMsgs[i].value);
 	};
 
-	chrome.storage.sync.set({'notifyOption': bChromeNotificationEnabled, 'soundOption': bSoundEnabled, 'mindfulMessages': saMsgs}, function() {
+	var storageItems = {
+		'notifyOption': bChromeNotificationEnabled, 
+		'soundOption': bSoundEnabled, 
+		'mindfulMessages': saMsgs
+	};
+
+	chrome.storage.sync.set(storageItems, function() {
         // Debug output to console
         console.log("SET: The notification option value stored is: " + bChromeNotificationEnabled);
         console.log("SET: The sound option value stored is: " + bSoundEnabled);

@@ -6,8 +6,7 @@ const ALARM_NAME = "mindfulMoments";
 /** HELPER METHODS **/
 
 //returns a random integer between @min and @max
-function randomIntFromInterval(min,max)
-{
+function randomIntFromInterval(min,max) {
     return Math.floor(Math.random()*(max-min+1)+min);
 }
 
