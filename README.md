@@ -13,13 +13,13 @@ This extension reminds the user to occasionally take mindful breaks.
 4. ~~add an options page to configure randomness and the message text~~
 5. ~~determine best notification mechanism (alert vs. chrome notifications vs. popup vs. ding sound...etc)~~
 6. make primary fuctionalty
-  a. make sound option for all notification modes
-  b. hook up notifications with options page. First load defaults if options page isn't opened
-  c. choose random message from available messages
-  d. enriched notifications
-  e. add time interval options page (notify me every x mins (+ or - y mins)) (make user friendly)
-  f. find 1 zen picutre
-  g. find 1 zen sound
+  a. make sound option for all notification modes > MJ
+  b. hook up notifications with options page. First load defaults if options page isn't opened > MJ
+  c. choose random message from available messages > MJ
+  d. enriched notifications > Chris
+  e. add time interval options page (notify me every x mins (+ or - y mins)) (make user friendly) > Chris
+  f. find 1 zen picutre > Mei-Yan/Chris
+  g. find 1 zen sound > Rami/MJ
 
 ####Features parking lot:
 - don't let alerts/notifications pile up if user is not at desk
@@ -27,3 +27,4 @@ This extension reminds the user to occasionally take mindful breaks.
 - find multiple zen picures, choose randomly
 - finding multiple zen sounds, choose randomly
 - update JavaScript styling of options and notifications pages
+- format a better CSS style sheet (a priority when tacling different versions/themes)
