@@ -21,6 +21,12 @@ This extension reminds the user to occasionally take mindful breaks.
   f. find 1 zen picutre > Mei-Yan/Chris
   g. find 1 zen sound > Rami/MJ 
 
+####TEST CASES
+1. Ensure that on first load all storage it loaded with defaults
+2. What is options page is loaded when alarm fires?
+3. What if another alert is open when alarm fires?
+4. What if another notification is open when alarm fires?
+
 ####Features parking lot:
 - don't let alerts/notifications pile up if user is not at desk
 - JS namespacing
