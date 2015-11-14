@@ -5,17 +5,12 @@
   "description": "This extension reminds the user to occasionally take mindful breaks",
   "version": "1.0",
 
-  // "browser_action": {
-  //   "default_icon": "images/icon.png",
-  //   "default_popup": "popup.html"
-  // },
-
   "options_ui": {
     "page": "options.html",
     "chrome_style": true
   },
 
-  // Old options page manufest field prerefed by versions of Chrome prior to 40
+  // Old options page manufest field preferred by versions of Chrome prior to 40
   "options_page": "options.html",
 
   "background" : {
