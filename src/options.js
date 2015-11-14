@@ -1,9 +1,9 @@
 var defaultOptions = {
-	'notifyOption': true, 
-	'soundOption': false,
-	"notifyTimePeriod": 20,
-	"notifyTimeDelta": 5, 
-	'mindfulMessages': [
+	"notifyOption": true, 
+	"soundOption": false,
+	"notifyStartTimeRange": 20,
+	"notifyEndTimeRange": 5, 
+	"mindfulMessages": [
        "Zen1",
        "Zen2",
        "Zen3",
@@ -27,15 +27,15 @@ function initializeForm(){
 
 	chrome.storage.sync.get(defaultOptions, function(items) {
 
-		document.getElementsByName('notify')[0].checked = items.notifyOption;
-		document.getElementsByName('notify')[1].checked = !items.notifyOption;
+		document.getElementsByName("notify")[0].checked = items.notifyOption;
+		document.getElementsByName("notify")[1].checked = !items.notifyOption;
 
-		document.getElementById('sound').checked = items.soundOption;
+		document.getElementById("sound").checked = items.soundOption;
 
-		document.getElementById("notifyTimePeriod").value = items.notifyTimePeriod;
-		document.getElementById("notifyTimeDelta").value = items.notifyTimeDelta;
+		document.getElementById("notifyStartTimeRange").value = items.notifyStartTimeRange;
+		document.getElementById("notifyEndTimeRange").value = items.notifyEndTimeRange;
 
-		var listboxMsgs = document.getElementById('listboxMsgs');
+		var listboxMsgs = document.getElementById("listboxMsgs");
 
 		for (var i = 0; i < items.mindfulMessages.length; i++) {
 			listboxMsgs.add(new Option(items.mindfulMessages[i], items.mindfulMessages[i]));
@@ -46,12 +46,12 @@ function initializeForm(){
 // Add messages to the list box. This list is what will be displayed
 // at random times as mindful moments
 function addMessage() {
-	var textboxMsg = document.getElementById('textboxMsg');
+	var textboxMsg = document.getElementById("textboxMsg");
 	
 	// If the value entered is not empty then add it to
 	// the list of mindful moment messages
 	if (textboxMsg.value){
-		var listboxMsgs = document.getElementById('listboxMsgs');
+		var listboxMsgs = document.getElementById("listboxMsgs");
 		listboxMsgs.add(new Option(textboxMsg.value, textboxMsg.value));	
 	}
 }
@@ -59,7 +59,7 @@ function addMessage() {
 // Remove messages from the list box. This list is what will be displayed
 // at random times as mindful moments
 function removeMessage(){
-	var listboxMsgs = document.getElementById('listboxMsgs');
+	var listboxMsgs = document.getElementById("listboxMsgs");
 	var options = listboxMsgs.options;
 	var i = options.length;
 
@@ -78,8 +78,8 @@ function saveOptions(){
 	var chromeNotificationEnabled = document.getElementsByName("notify")[0].checked;
 	var isSoundEnabled = document.getElementById("sound").checked;
 	var optionsMsgs = document.getElementById("listboxMsgs").options;
-	var notifyTimePeriod = document.getElementById("notifyTimePeriod").value;
-	var notifyTimeDelta = document.getElementById("notifyTimeDelta").value;
+	var notifyStartTimeRange = document.getElementById("notifyStartTimeRange").value;
+	var notifyEndTimeRange = document.getElementById("notifyEndTimeRange").value;
 
 	// Add all options into an array so they can be used by chrome storage
 	var saMsgs = [];
@@ -90,8 +90,8 @@ function saveOptions(){
 	var storageItems = {
 		"notifyOption": chromeNotificationEnabled, 
 		"soundOption": isSoundEnabled, 
-		"notifyTimePeriod": notifyTimePeriod,
-		"notifyTimeDelta": notifyTimeDelta,
+		"notifyStartTimeRange": notifyStartTimeRange,
+		"notifyEndTimeRange": notifyEndTimeRange,
 		"mindfulMessages": saMsgs
 	};
 
