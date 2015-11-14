@@ -21,7 +21,7 @@ This extension reminds the user to occasionally take mindful breaks.
     3. choose a random message from the list of available messages > MJ
     4. add enriched notifications > Chris
     5. ~~add alarm time in options and make text user friendly (notify me every x mins (+/- y mins)) > Chris~~
-    6. find 1 zen picture > Mei-Yan/Chris
+    6. ~~find 1 zen picture > Mei-Yan/Chris~~
     7. find 1 zen sound > Rami/MJ 
     8. Validate options (alarm interval correct order, at least 1 message)
     9. CSS style options page
