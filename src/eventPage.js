@@ -3,7 +3,96 @@
 const ALARM_NAME = "mindfulMoments";
 
 
+/** RUN THE CODE **/
+
+//create the initial alarm (and print its details to the console)
+createAlarm(true);
+debugAlarms(true);
+
+function alarmHandler(alarm) {
+	if(alarm.name == ALARM_NAME) {
+		
+		//TODO don't retrieve options for each alarm
+		//perhaps it's better to check a flag in background.html 
+		//that is turn on if options were changed, and once we update this file's representation of the options
+		//we turn off that flag
+		chrome.storage.sync.get(["notifyOption", "soundOption", "mindfulMessages"], function (options) {
+			
+			if(Object.keys(options).length === 0) {
+				throw "TODO - default OPTIONS not yet set";
+			}
+
+			//Debug output to console  
+			console.log(JSON.stringify(options));
+
+			notifyUserOfMindfulBreak(options);
+
+			//now that the only alarm has run, there is no longer an alarm active,
+			//so we create a new alarm in its place
+			createAlarm(false);
+			debugAlarms(false);
+		});
+	}
+}
+
+chrome.alarms.onAlarm.addListener(alarmHandler);
+
+
 /** HELPER METHODS **/
+
+//creates an alarm using a random delay (optionally allowing the caller to distinguish
+//between the initially set alarm and subsequent ones)
+function createAlarm(isInitial) {
+	
+	//if initial alarm then returns 0.1 or 0.2 which are equivalent to 6 or 12 seconds
+	//else, returns 0.15 or 0.25 which are equivalent to 9 or 15 seconds
+	var delay = isInitial ? (randomIntFromInterval(1,2)/10) : (randomIntFromInterval(2,3)/10 - 0.05);
+
+	var alarmInfo = {
+		"delayInMinutes": delay
+	};
+
+	chrome.alarms.create(ALARM_NAME, alarmInfo);
+}
+
+function notifyUserOfMindfulBreak(options) {
+
+	if(options.soundOption)
+		playSound();
+
+	var message = selectMessage(options.mindfulMessages);
+
+	if(options.notifyOption) {
+		notifyWithChromeNotifications(message);
+	} else {
+		notifyWithAlert(message);
+	}
+}
+
+function selectMessage(mindfulMessages) {
+	return mindfulMessages[0];
+}
+
+function playSound() {
+	var audio = new Audio('sounds/Taito_Carousel.wav');
+	audio.play();
+}
+
+function notifyWithAlert(message) {
+	alert(message);
+}
+
+function notifyWithChromeNotifications(message) {
+	var opt = {
+		type: "basic",
+		title: "Mindful Moments",
+		message: message,
+		iconUrl: "images/icon.png"
+	};
+
+	chrome.notifications.create("takeBreak", opt, function () {});
+}
+
 
 //returns a random integer between @min and @max
 function randomIntFromInterval(min,max) {
@@ -11,7 +100,7 @@ function randomIntFromInterval(min,max) {
 }
 
 //prints to the console every alarm that is currently set (name and delay in seconds)
-function checkAlarms(isInitial) {
+function debugAlarms(isInitial) {
 	
 	chrome.alarms.getAll(function(alarms) {
 
@@ -31,85 +120,4 @@ function checkAlarms(isInitial) {
 			console.log(prefix + 'no alarms currently defined');
 		}
 	});
-};
-
-//creates an alarm using a random delay (optionally allowing the caller to distinguish
-//between the initially set alarm and subsequent ones)
-function createAlarm(isInitial) {
-	
-	//if initial alarm then returns 0.1 or 0.2 which are equivalent to 6 or 12 seconds
-	//else, returns 0.15 or 0.25 which are equivalent to 9 or 15 seconds
-	var delay = isInitial ? (randomIntFromInterval(1,2)/10) : (randomIntFromInterval(2,3)/10 - 0.05);
-
-	var alarmInfo = {
-		"delayInMinutes": delay
-	};
-
-	chrome.alarms.create(ALARM_NAME, alarmInfo);
-};
-
-function NotifyWithConsole() {
-	console.log("Hey man, take a break and be mindful!!");
 }
-
-function NotifyWithAlert() {
-	alert("Hey man, take a break and be mindful!!");
-}
-
-function NotifyWithNotificationAPI() {
-	var opt = {
-		type: "basic",
-		title: "Mindful Moments",
-		message: "Hey man, take a break and be mindful!!",
-		iconUrl: "images/icon.png"
-	};
-
-	chrome.notifications.create("takeBreak", opt, function () {});
-}
-
-function NotifyWithSound() {
-	var audio = new Audio('sounds/Taito_Carousel.wav');
-	audio.play();
-}
-
-function NotifyUserOfMindfulBreak() {
-
-	//get notification Type from the user's set OPTIONS or use DEFAULT
-	var notificationType = "sound";
-
-	switch (notificationType) {
-		case "alert":
-			NotifyWithAlert();
-			break;
-		case "notificationAPI":
-			NotifyWithNotificationAPI();
-			break;
-		case "sound":
-			NotifyWithSound();
-			break;
-		default:
-			NotifyWithConsole();
-			break;
-	}
-}
-
-
-/** RUN THE CODE **/
-
-//create the initial alarm (and print its details to the console)
-createAlarm(true);
-checkAlarms(true);
-
-function alarmHandler(alarm) {
-	if(alarm.name == ALARM_NAME) {
-		
-		NotifyUserOfMindfulBreak();
-
-		//now that the only alarm has run, there is no longer an alarm active,
-		//so we create a new alarm in its place
-		createAlarm(false);
-		checkAlarms(false);
-	}
-};
-
-chrome.alarms.onAlarm.addListener(alarmHandler);
