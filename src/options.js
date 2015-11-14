@@ -116,10 +116,12 @@ function debugOptions(storageItems) {
 	if(!storageItems) {
 
 		chrome.storage.sync.get(Object.keys(defaultOptions), function (items) {
-			storageItems = items;
+			//Debug output to console  
+			console.log(JSON.stringify(items));
 		});
-	}
 
-	//Debug output to console    
-	console.log(JSON.stringify(storageItems));
+	} else {
+		//Debug output to console    
+		console.log(JSON.stringify(storageItems));
+	}
 }
