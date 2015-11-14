@@ -29,3 +29,4 @@ This extension reminds the user to occasionally take mindful breaks.
 - finding multiple zen sounds, choose randomly
 - update JavaScript styling of options and notifications pages
 - format a better CSS style sheet (a priority when tackling different versions/themes)
+- implement auto-save on the options page
