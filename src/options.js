@@ -1,8 +1,8 @@
 var defaultOptions = {
 	"notifyOption": true, 
 	"soundOption": false,
-	"notifyStartTimeRange": 20,
-	"notifyEndTimeRange": 5, 
+	"notifyStartTimeRange": 15,
+	"notifyEndTimeRange": 20, 
 	"mindfulMessages": [
        "Zen1",
        "Zen2",

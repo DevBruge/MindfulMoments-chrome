@@ -7,32 +7,38 @@
 </head>
 <body>
 	<h1 id="OptionsTitle">Mindful Moments Options</h1>
-	Notification Options</br>
-	<form>
+
+	<div class="sections">
+	<label class="subTitles displayBlock">Notification Options</label>
 		<input name="notify" type="radio" value="notification"> Chrome Notification 
 		</br>
 		<input name="notify" type="radio" value="alert"> Popup Alert
-	</form>
-	</br>
+	</div>
 
-	<p>Play Sound?</p>
+	<div class="sections">
+	<label class="subTitles displayBlock">Play Sound?</label>
 	<input id="sound" type="checkbox" value="soundEnabled">Yes
-	</br></br>
+	</div>
 
-	Alert Timer</br>
-	notify me every <input id="notifyStartTimeRange" type="number" > 
+	<div class="sections">
+	<label class="subTitles displayBlock">Alarm Time Settings</label>
+	Notify me every <input id="notifyStartTimeRange" type="number" > 
 	to <input id="notifyEndTimeRange" type="number" > mins
-	</br></br>
+	</div>
 
-	List of messages to be displayed</br>
-	<select size="6" multiple="multiple" id="listboxMsgs">
-	</select>
+	<div class="sections" id="messageSection">
+		<label class="subTitles displayBlock">List of Messages to be Displayed</label>
+		<select class="messages" multiple="multiple" id="listboxMsgs"></select>
+		</br>
+		<input class="messages"type="text" id="textboxMsg">
+		</br>
+		<div class="messages">
+			<input id="add" type="submit" value="Add Message">
+			<input id="remove" type="submit" value="Remove Message(s)">
+		</div>
+	</div>
+
 	</br>
-	<input id="add" type="submit" value="Add Message">
-	<input id="remove" type="submit" value="Remove Message">
-	</br>
-	<input type="text" id="textboxMsg">
-	</br></br></br>
 	<input id="save" type="submit" value="Save"> <span id="status"></span>
 </body>
 </html>
