@@ -83,11 +83,14 @@ function notifyWithAlert(message) {
 }
 
 function notifyWithChromeNotifications(message) {
+	//chrome.notifications.clear("takeBreak", function () {});
+
 	var opt = {
-		type: "basic",
+		type: "image",
 		title: "Mindful Moments",
 		message: message,
-		iconUrl: "images/icon.png"
+		iconUrl: "images/icon.png",
+		imageUrl: "images/zen2.jpg"
 	};
 
 	chrome.notifications.create("takeBreak", opt, function () {});
