@@ -20,27 +20,43 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("add").addEventListener("click", addMessage);
     document.getElementById("remove").addEventListener("click", removeMessage);
     document.getElementById("save").addEventListener("click", saveOptions);
+    document.getElementById("reset").addEventListener("click", restOptionsToDefault);
 });
 
 // Ensured that the options page is loaded with the last saved values (or defaults)
 function initializeForm(){
 
 	chrome.storage.sync.get(defaultOptions, function(items) {
-
-		document.getElementsByName("notify")[0].checked = items.notifyOption;
-		document.getElementsByName("notify")[1].checked = !items.notifyOption;
-
-		document.getElementById("sound").checked = items.soundOption;
-
-		document.getElementById("notifyStartTimeRange").value = items.notifyStartTimeRange;
-		document.getElementById("notifyEndTimeRange").value = items.notifyEndTimeRange;
-
-		var listboxMsgs = document.getElementById("listboxMsgs");
-
-		for (var i = 0; i < items.mindfulMessages.length; i++) {
-			listboxMsgs.add(new Option(items.mindfulMessages[i], items.mindfulMessages[i]));
-        }
+		updateFormOptions(items);
 	});
+}
+
+// Update all options html elements
+function updateFormOptions(items) {
+
+	// Overwrite notification type option settings
+	document.getElementsByName("notify")[0].checked = items.notifyOption;
+	document.getElementsByName("notify")[1].checked = !items.notifyOption;
+
+	// Overwrite sound enabled option setting
+	document.getElementById("sound").checked = items.soundOption;
+
+	// Overwrite alarm time option settings
+	document.getElementById("notifyStartTimeRange").value = items.notifyStartTimeRange;
+	document.getElementById("notifyEndTimeRange").value = items.notifyEndTimeRange;
+
+	var listboxMsgs = document.getElementById("listboxMsgs");
+
+	// Clear the list box
+	var i = listboxMsgs.length;
+	while (i--) {
+		listboxMsgs.remove(i);
+	}
+
+	// Add the options from 'items' back into the list box
+	for (var i = 0; i < items.mindfulMessages.length; i++) {
+		listboxMsgs.add(new Option(items.mindfulMessages[i], items.mindfulMessages[i]));
+    }
 }
 
 // Add messages to the list box. This list is what will be displayed
@@ -114,6 +130,11 @@ function saveOptions(){
 	debugOptions();
 }
 
+// Resets all of the options to the defaults (doesn't save them automatically though)
+function restOptionsToDefault(){
+
+	updateFormOptions(JSON.parse(JSON.stringify(defaultOptions)));
+}
 
 /** HELPER METHODS **/
 
