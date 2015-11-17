@@ -103,37 +103,87 @@ function saveOptions(){
 		saMsgs.push(optionsMsgs[i].value);
 	};
 
-	var storageItems = {
-		"notifyOption": chromeNotificationEnabled, 
-		"soundOption": isSoundEnabled, 
-		"notifyStartTimeRange": notifyStartTimeRange,
-		"notifyEndTimeRange": notifyEndTimeRange,
-		"mindfulMessages": saMsgs
-	};
+	if (validateOptions(notifyStartTimeRange, notifyEndTimeRange, saMsgs)) {
 
-	chrome.storage.sync.set(storageItems, function() {
+		var storageItems = {
+			"notifyOption": chromeNotificationEnabled, 
+			"soundOption": isSoundEnabled, 
+			"notifyStartTimeRange": notifyStartTimeRange,
+			"notifyEndTimeRange": notifyEndTimeRange,
+			"mindfulMessages": saMsgs
+		};
 
-        // Debug output to console
-        debugOptions(storageItems);
+		chrome.storage.sync.set(storageItems, function() {
 
-        // Update status to let user know options were saved.
-	    var status = document.getElementById("status");
-	    status.textContent = "Options saved.";
+	        // Debug output to console
+	        debugOptions(storageItems);
 
-	    // Eventually blank the status message
-	    setTimeout(function() {
-	      status.textContent = "";
-	    }, 750);
-    });
+	        // Update status to let user know options were saved.
+		    writeStatusMessage("Options saved", false);
+	    });
 
-	//debug the options set
-	debugOptions();
+		//debug the options set
+		debugOptions();
+	}
 }
 
 // Resets all of the options to the defaults (doesn't save them automatically though)
 function restOptionsToDefault(){
 
 	updateFormOptions(JSON.parse(JSON.stringify(defaultOptions)));
+}
+
+// Writes a status message to the screen. Informational or error, which get styled with CSS file
+function writeStatusMessage(message, isError) {
+	var status = document.getElementById("status");
+	var statusError = document.getElementById("statusError");
+	var timeout = 1000;
+
+	if (isError) {
+	    status.textContent = "";
+	    statusError.textContent = message;
+	} else {
+	    statusError.textContent = "";
+		status.textContent = message;
+
+	    // Eventually blank the informational status message
+	    setTimeout(function() {
+	      status.textContent = "";
+	    }, timeout);
+	}
+}
+
+function validateOptions(notifyStartTimeRange, notifyEndTimeRange, saMsgs) {
+	
+	var status = true;
+
+	notifyStartTimeRangeAsNumber = Number(notifyStartTimeRange);
+	notifyEndTimeRangeAsNumber = Number(notifyEndTimeRange);
+
+	// Ensure that the alarm times have been entered as numbers
+	if (isNaN(notifyStartTimeRangeAsNumber) || isNaN(notifyEndTimeRangeAsNumber)) {
+		writeStatusMessage("Please enter an alarm time as number of minutes", true);
+		status = false;
+	} else {
+		if (notifyStartTimeRangeAsNumber<1 || notifyEndTimeRangeAsNumber<1) {
+			// Ensure that the alarm times are greater than 0
+			writeStatusMessage("Please choose an alarm time of 1 minute or more", true);
+			status = false;
+		} else if (notifyStartTimeRangeAsNumber>notifyEndTimeRangeAsNumber) {
+			// Ensure that the start range is less or equal to the end range
+			writeStatusMessage('Please ensure "from" alarm time is less than "to" time', true);
+			status = false;
+		}
+	}
+
+	// Ensure that the array is defined and has at least 1
+	// message to print in the notification
+	if (typeof saMsgs === 'undefined' || saMsgs.length === 0) {
+		writeStatusMessage('Please include at least 1 message', true);
+		status = false;
+	}
+
+	return status;
 }
 
 /** HELPER METHODS **/

@@ -41,5 +41,9 @@ input[type=number]{
 /* Save status */
 
 #status {
-    color:lime;
+    color:green;
+}
+
+#statusError {
+    color:red;
 }

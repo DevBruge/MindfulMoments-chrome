@@ -23,8 +23,8 @@ This extension reminds the user to occasionally take mindful breaks.
     6. ~~add alarm time in options and make text user friendly (notify me every x mins (+/- y mins)) > Chris~~
     7. ~~find 1 zen picture > Mei-Yan/Chris~~
     8. find 1 zen sound > Rami/MJ 
-7. add a "reset to defaults" button in the options page > Chris
-8. Validate options (alarm interval correct order, at least 1 message) > Chris
+7. ~~add a "reset to defaults" button in the options page > Chris~~
+8. ~~Validate options (alarm interval correct order, at least 1 message) > Chris~~
 9. figure out best practices for removing options stored in local/sync storage
     - looks like options are maintained on reload/disable and renable
     - looks like options are removed on uninstall (aka unload, if unpacked)
@@ -33,7 +33,11 @@ This extension reminds the user to occasionally take mindful breaks.
     2. remove all commented out code
     3. decide preferred order of functions in JS files
     4. apply any outstanding refactoring
-    5. ~~CSS style options page > Chris~~
+11. visual appeal
+    1. ~~CSS style options page > Chris~~
+    2. Chrome notification style
+    3. Alert box styling
+    4. Icon 
 
 ####TEST CASES
 1. Ensure that on first load all storage it loaded with defaults
