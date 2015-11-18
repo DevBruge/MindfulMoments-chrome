@@ -7,7 +7,13 @@ var defaultOptions = {
        "Zen1",
        "Zen2",
        "Zen3",
-       "Zen4"
+       "Zen4",
+       "Zen5",
+       "Zen6",
+       "Zen7",
+       "Zen8",
+       "Zen9",
+       "Zen10"
 	],
 };
 
