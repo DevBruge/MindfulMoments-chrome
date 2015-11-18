@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("add").addEventListener("click", addMessage);
     document.getElementById("remove").addEventListener("click", removeMessage);
     document.getElementById("save").addEventListener("click", saveOptions);
-    document.getElementById("reset").addEventListener("click", restOptionsToDefault);
+    document.getElementById("reset").addEventListener("click", resetOptionsToDefault);
 });
 
 // Ensured that the options page is loaded with the last saved values (or defaults)
@@ -68,7 +68,10 @@ function addMessage() {
 	// the list of mindful moment messages
 	if (textboxMsg.value){
 		var listboxMsgs = document.getElementById("listboxMsgs");
-		listboxMsgs.add(new Option(textboxMsg.value, textboxMsg.value));	
+		listboxMsgs.add(new Option(textboxMsg.value, textboxMsg.value));
+
+		//clear the textbox after the entry is added
+		textboxMsg.value = "";
 	}
 }
 
@@ -86,6 +89,14 @@ function removeMessage(){
 	    if (current.selected) {
 	        listboxMsgs.remove(i);
 	    }
+	}
+	
+	if(listboxMsgs.options.length) {
+		//select the first item in the list for ease of multiple removals
+		listboxMsgs.options[0].selected = true;
+		listboxMsgs.focus();
+		//TODO - there's some visual bug with using down arrow key 
+		//after reselection, can't figure out why
 	}
 }
 
@@ -128,9 +139,9 @@ function saveOptions(){
 }
 
 // Resets all of the options to the defaults (doesn't save them automatically though)
-function restOptionsToDefault(){
+function resetOptionsToDefault(){
 
-	updateFormOptions(JSON.parse(JSON.stringify(defaultOptions)));
+	updateFormOptions(defaultOptions);
 }
 
 // Writes a status message to the screen. Informational or error, which get styled with CSS file
