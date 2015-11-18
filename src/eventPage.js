@@ -9,6 +9,26 @@ const ALARM_NAME = "mindfulMoments";
 createAlarm(true);
 debugAlarms(true);
 
+chrome.alarms.onAlarm.addListener(alarmHandler);
+
+
+/** HELPER METHODS **/
+
+//creates an alarm using a random delay (optionally allowing the caller to distinguish
+//between the initially set alarm and subsequent ones)
+function createAlarm(isInitial) {
+	
+	//if initial alarm then returns 0.1 or 0.2 which are equivalent to 6 or 12 seconds
+	//else, returns 0.15 or 0.25 which are equivalent to 9 or 15 seconds
+	var delay = isInitial ? (randomIntFromInterval(1,2)/10) : (randomIntFromInterval(2,3)/10 - 0.05);
+
+	var alarmInfo = {
+		"delayInMinutes": delay
+	};
+
+	chrome.alarms.create(ALARM_NAME, alarmInfo);
+}
+
 function alarmHandler(alarm) {
 	if(alarm.name == ALARM_NAME) {
 		
@@ -35,26 +55,6 @@ function alarmHandler(alarm) {
 	}
 }
 
-chrome.alarms.onAlarm.addListener(alarmHandler);
-
-
-/** HELPER METHODS **/
-
-//creates an alarm using a random delay (optionally allowing the caller to distinguish
-//between the initially set alarm and subsequent ones)
-function createAlarm(isInitial) {
-	
-	//if initial alarm then returns 0.1 or 0.2 which are equivalent to 6 or 12 seconds
-	//else, returns 0.15 or 0.25 which are equivalent to 9 or 15 seconds
-	var delay = isInitial ? (randomIntFromInterval(1,2)/10) : (randomIntFromInterval(2,3)/10 - 0.05);
-
-	var alarmInfo = {
-		"delayInMinutes": delay
-	};
-
-	chrome.alarms.create(ALARM_NAME, alarmInfo);
-}
-
 function notifyUserOfMindfulBreak(options) {
 
 	if(options.soundOption)
@@ -70,7 +70,9 @@ function notifyUserOfMindfulBreak(options) {
 }
 
 function selectMessage(mindfulMessages) {
-	return mindfulMessages[0];
+	//randomly select a message from the list
+	var randomMessageIndex = randomIntFromInterval(0,mindfulMessages.length - 1);
+	return mindfulMessages[randomMessageIndex];
 }
 
 function playSound() {

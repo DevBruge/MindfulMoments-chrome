@@ -19,7 +19,7 @@ This extension reminds the user to occasionally take mindful breaks.
     3. load defaults if user hasn't set the options page yet (or force options page on them) > MJ
         - can force load the options page instead of first alarm > MJ
         - can refactor code to put defaultOptions are JSON file, and load it into a background.html page
-    4. choose a random message from the list of available messages > MJ
+    4. ~~choose a random message from the list of available messages > MJ~~
     5. ~~add enriched notifications > Chris~~
     6. ~~add alarm time in options and make text user friendly (notify me every x mins (+/- y mins)) > Chris~~
     7. ~~find 1 zen picture > Mei-Yan/Chris~~
