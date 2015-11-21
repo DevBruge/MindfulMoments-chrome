@@ -15,10 +15,10 @@ This extension reminds the user to occasionally take mindful breaks.
 6. hook up the pieces:
     1. ~~make sound an option for all notification modes > MJ~~
     2. ~~hook up notifications with the options page > MJ~~
-    3. hook up alarm timing with the options page > MJ
+    3. ~~hook up alarm timing with the options page > MJ~~
     3. load defaults if user hasn't set the options page yet (or force options page on them) > MJ
         - can force load the options page instead of first alarm > MJ
-        - can refactor code to put defaultOptions are JSON file, and load it into a background.html page
+        - can refactor code to put defaultOptions in a JSON file, and load it into a background.html page
     4. ~~choose a random message from the list of available messages > MJ~~
     5. ~~add enriched notifications > Chris~~
     6. ~~add alarm time in options and make text user friendly (notify me every x mins (+/- y mins)) > Chris~~
