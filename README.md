@@ -39,6 +39,7 @@ This extension reminds the user to occasionally take mindful breaks.
     2. Chrome notification style
     3. Alert box styling
     4. Icon 
+12. choose a software license, and add it (maybe MIT license?)
 
 ####TEST CASES
 1. Ensure that on first load all storage it loaded with defaults
