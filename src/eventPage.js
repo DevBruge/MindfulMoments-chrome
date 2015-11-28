@@ -105,7 +105,7 @@ function notifyWithChromeNotifications(message) {
 		title: "Mindful Moments",
 		message: message,
 		iconUrl: "images/icon.png",
-		imageUrl: "images/zen2.jpg"
+		imageUrl: "images/zen1.jpg"
 	};
 
 	chrome.notifications.create("takeBreak", opt, function () {});

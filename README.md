@@ -36,9 +36,10 @@ This extension reminds the user to occasionally take mindful breaks.
     4. apply any outstanding refactoring
 11. visual appeal
     1. ~~CSS style options page > Chris~~
-    2. Chrome notification style
-    3. Alert box styling
-    4. Icon 
+    2. ~~Chrome notification style > Chris~~
+    3. ~~Alert box styling > researched and this is not worth it > leave as is~~
+    4. ~~Icon > Chris~~ 
+    5. have multiple random images (understand size of extension download when adding images) > Chris
 
 ####TEST CASES
 1. Ensure that on first load all storage it loaded with defaults
