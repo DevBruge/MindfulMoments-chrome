@@ -12,7 +12,7 @@ This extension reminds the user to occasionally take mindful breaks.
 3. ~~add randomness to the alert~~
 4. ~~add an options page to configure randomness and the message text~~
 5. ~~determine best notification mechanism (alert vs. chrome notifications vs. popup vs. ding sound...etc)~~
-6. hook up the pieces:
+6. ~~hook up the pieces:~~
     1. ~~make sound an option for all notification modes > MJ~~
     2. ~~hook up notifications with the options page > MJ~~
     3. ~~hook up alarm timing with the options page > MJ~~
@@ -31,9 +31,9 @@ This extension reminds the user to occasionally take mindful breaks.
 21. attach zen sound to alarm (in Gmail) > MJ
 3. refactor code to put defaultOptions in a JSON file (and load it into a background.html page) > MJ
 8. Load default options from JSON file on alarm create if they're NULL > MJ
-3. Alarm code sharing in one background page (read architecture overview) > Chris
+3. ~~Alarm code sharing in one background page (read architecture overview) > Chris~~
 3. ~~force load the options page on extension install > Chris~~
-8. Reschedule current alarm on options save event > Chris
+8. ~~Reschedule current alarm on options save event > Chris~~
 10. clean up code > Chris/MJ
     1. remove all debug statements
     2. remove all commented out code

@@ -53,6 +53,13 @@ function createAlarm(isInitial) {
 	});
 }
 
+function stopAlarm() {
+	// Clear all the alarms (even though there is only 1 at a time)
+	chrome.alarms.clearAll(function(wasCleared) {
+		return wasCleared;
+	});
+}
+
 function alarmHandler(alarm) {
 	
 	if(alarm.name == ALARM_NAME) {
@@ -91,6 +98,12 @@ function notifyUserOfMindfulBreak(options) {
 	} else {
 		notifyWithAlert(message);
 	}
+}
+
+function resetAlarmWithSavedSettings() {
+	// stop existing alarm and start a new one
+	stopAlarm();
+	createAlarm(false);
 }
 
 function selectMessage(mindfulMessages) {
