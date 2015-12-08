@@ -5,6 +5,7 @@ const ALARM_NAME = "mindfulMoments";
 
 /** RUN THE CODE **/
 
+chrome.runtime.onInstalled.addListener(loadOptionsOnInstall);
 chrome.alarms.onAlarm.addListener(alarmHandler);
 
 //create the initial alarm (and print its details to the console)
@@ -12,6 +13,16 @@ createAlarm(true);
 
 
 /** HELPER METHODS **/
+
+//load the options page on first installed
+function loadOptionsOnInstall(details){
+
+	console.log("OnInstalledReason: " + details.reason);
+
+	if(details.reason == "install"){
+		chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });	
+	}
+}
 
 //creates an alarm using the delay parameters configured in the options page
 function createAlarm(isInitial) {
