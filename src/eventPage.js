@@ -2,6 +2,24 @@
 /** CONSTANTS **/
 const ALARM_NAME = "mindfulMoments";
 
+var defaultOptions = {
+	"notifyOption": true, 
+	"soundOption": false,
+	"notifyStartTimeRange": 15,
+	"notifyEndTimeRange": 20, 
+	"mindfulMessages": [
+       "Zen1",
+       "Zen2",
+       "Zen3",
+       "Zen4",
+       "Zen5",
+       "Zen6",
+       "Zen7",
+       "Zen8",
+       "Zen9",
+       "Zen10"
+	],
+};
 
 /** RUN THE CODE **/
 
@@ -27,7 +45,7 @@ function loadOptionsOnInstall(details){
 //creates an alarm using the delay parameters configured in the options page
 function createAlarm(isInitial) {
 	
-	chrome.storage.sync.get(["notifyStartTimeRange", "notifyEndTimeRange"], function (delayOptions) {
+	chrome.storage.sync.get(defaultOptions, function (delayOptions) {
 
 		var minMinutes = parseInt(delayOptions.notifyStartTimeRange);
 		var maxMinutes = parseInt(delayOptions.notifyEndTimeRange);
@@ -68,7 +86,7 @@ function alarmHandler(alarm) {
 		//perhaps it's better to check a flag in background.html 
 		//that is turn on if options were changed, and once we update this file's representation of the options
 		//we turn off that flag
-		chrome.storage.sync.get(["notifyOption", "soundOption", "mindfulMessages"], function (options) {
+		chrome.storage.sync.get(defaultOptions, function (options) {
 			
 			if(Object.keys(options).length === 0) {
 				throw "TODO - default OPTIONS not yet set";

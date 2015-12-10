@@ -1,32 +1,21 @@
-var defaultOptions = {
-	"notifyOption": true, 
-	"soundOption": false,
-	"notifyStartTimeRange": 15,
-	"notifyEndTimeRange": 20, 
-	"mindfulMessages": [
-       "Zen1",
-       "Zen2",
-       "Zen3",
-       "Zen4",
-       "Zen5",
-       "Zen6",
-       "Zen7",
-       "Zen8",
-       "Zen9",
-       "Zen10"
-	],
-};
+
+var defaultOptions;
 
 document.addEventListener("DOMContentLoaded", function() {
 
-	//initialize the options page (with default values if necessary)
-	initializeForm();
+	chrome.runtime.getBackgroundPage(function(eventPage){
 
-	//hook up the buttons
-    document.getElementById("add").addEventListener("click", addMessage);
-    document.getElementById("remove").addEventListener("click", removeMessage);
-    document.getElementById("save").addEventListener("click", saveOptions);
-    document.getElementById("reset").addEventListener("click", resetOptionsToDefault);
+		defaultOptions = eventPage.defaultOptions;
+
+		//initialize the options page (with default values if necessary)
+		initializeForm();
+
+		//hook up the buttons
+	    document.getElementById("add").addEventListener("click", addMessage);
+	    document.getElementById("remove").addEventListener("click", removeMessage);
+	    document.getElementById("save").addEventListener("click", saveOptions);
+	    document.getElementById("reset").addEventListener("click", resetOptionsToDefault);
+	});
 });
 
 // Ensured that the options page is loaded with the last saved values (or defaults)

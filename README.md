@@ -29,8 +29,7 @@ This extension reminds the user to occasionally take mindful breaks.
     3. ~~Alert box styling > researched and this is not worth it > leave as is~~
     4. ~~Icon > Chris~~ 
 21. ~~attach zen sound to alarm (in Gmail) > MJ~~
-3. refactor code to put defaultOptions in a JSON file (and load it into a background.html page) > MJ
-8. Load default options from JSON file on alarm create if they're NULL > MJ
+8. ~~Load default options from background page on alarm create/handle if they're NULL > MJ~~
 3. ~~Alarm code sharing in one background page (read architecture overview) > Chris~~
 3. ~~force load the options page on extension install > Chris~~
 8. ~~Reschedule current alarm on options save event > Chris~~
@@ -69,3 +68,4 @@ This extension reminds the user to occasionally take mindful breaks.
 - figure out best practices for removing options stored in local/sync storage
     - looks like options are maintained on reload/disable and renable
     - looks like options are removed on uninstall (aka unload, if unpacked)
+- refactor code to put defaultOptions in a JSON file (and load it into a background.html page) > MJ
