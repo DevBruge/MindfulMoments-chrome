@@ -5,6 +5,7 @@ const ALARM_NAME = "mindfulMoments";
 
 /** RUN THE CODE **/
 
+chrome.runtime.onInstalled.addListener(loadOptionsOnInstall);
 chrome.alarms.onAlarm.addListener(alarmHandler);
 
 //create the initial alarm (and print its details to the console)
@@ -12,6 +13,16 @@ createAlarm(true);
 
 
 /** HELPER METHODS **/
+
+//load the options page on first installed
+function loadOptionsOnInstall(details){
+
+	console.log("OnInstalledReason: " + details.reason);
+
+	if(details.reason == "install"){
+		chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });	
+	}
+}
 
 //creates an alarm using the delay parameters configured in the options page
 function createAlarm(isInitial) {
@@ -39,6 +50,13 @@ function createAlarm(isInitial) {
 
 		chrome.alarms.create(ALARM_NAME, alarmInfo);
 		debugAlarms(isInitial);		
+	});
+}
+
+function stopAlarm() {
+	// Clear all the alarms (even though there is only 1 at a time)
+	chrome.alarms.clearAll(function(wasCleared) {
+		return wasCleared;
 	});
 }
 
@@ -82,6 +100,12 @@ function notifyUserOfMindfulBreak(options) {
 	}
 }
 
+function resetAlarmWithSavedSettings() {
+	// stop existing alarm and start a new one
+	stopAlarm();
+	createAlarm(false);
+}
+
 function selectMessage(mindfulMessages) {
 	//randomly select a message from the list
 	var randomMessageIndex = randomIntFromInterval(0,mindfulMessages.length - 1);
@@ -105,7 +129,7 @@ function notifyWithChromeNotifications(message) {
 		title: "Mindful Moments",
 		message: message,
 		iconUrl: "images/icon.png",
-		imageUrl: "images/zen2.jpg"
+		imageUrl: "images/notificationImages/zen1.jpg"
 	};
 
 	chrome.notifications.create("takeBreak", opt, function () {});

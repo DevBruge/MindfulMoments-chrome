@@ -135,6 +135,10 @@ function saveOptions(){
 	        // Debug output to console
 	        debugOptions(storageItems);
 
+	        // Stop olf alarm and create new based on saved settings
+	        var eventPage = chrome.extension.getBackgroundPage();
+	        eventPage.resetAlarmWithSavedSettings();
+
 	        // Update status to let user know options were saved.
 		    writeStatusMessage("Options saved", false);
 	    });
