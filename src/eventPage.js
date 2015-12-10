@@ -20,7 +20,7 @@ function loadOptionsOnInstall(details){
 	console.log("OnInstalledReason: " + details.reason);
 
 	if(details.reason == "install"){
-		chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });	
+		chrome.runtime.openOptionsPage();
 	}
 }
 
@@ -113,7 +113,7 @@ function selectMessage(mindfulMessages) {
 }
 
 function playSound() {
-	var audio = new Audio('sounds/Taito_Carousel.wav');
+	var audio = new Audio('sounds/zen1.mp3');
 	audio.play();
 }
 

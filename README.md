@@ -28,7 +28,7 @@ This extension reminds the user to occasionally take mindful breaks.
     2. ~~Chrome notification style > Chris~~
     3. ~~Alert box styling > researched and this is not worth it > leave as is~~
     4. ~~Icon > Chris~~ 
-21. attach zen sound to alarm (in Gmail) > MJ
+21. ~~attach zen sound to alarm (in Gmail) > MJ~~
 3. refactor code to put defaultOptions in a JSON file (and load it into a background.html page) > MJ
 8. Load default options from JSON file on alarm create if they're NULL > MJ
 3. ~~Alarm code sharing in one background page (read architecture overview) > Chris~~
