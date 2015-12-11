@@ -43,7 +43,7 @@ This extension reminds the user to occasionally take mindful breaks.
     3. ~~Alert box styling (chris investigated this, and it's not worth it w/o jQuery)~~
     4. ~~Icon~~
 12. ~~choose a software license, and add it (MIT license)~~
-13. Move contents of this file to a TODO.md file, and put extension overview info in the README.md instead
+13. ~~Move contents of this file to a TODO.md file, and put extension overview info in the README.md instead~~
 100. Publish
 
 ####TEST CASES
@@ -71,3 +71,4 @@ This extension reminds the user to occasionally take mindful breaks.
 - don't retrieve options for each alarm individually
     - can possibly set a flag in the background page indicating if the options have been changed or not
     - this way, we only retrieve from Chrome sync if the flag says options have changed
+- move todo list items to github issue logging
