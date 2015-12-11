@@ -8,16 +8,11 @@ var defaultOptions = {
 	"notifyStartTimeRange": 15,
 	"notifyEndTimeRange": 20, 
 	"mindfulMessages": [
-       "Zen1",
-       "Zen2",
-       "Zen3",
-       "Zen4",
-       "Zen5",
-       "Zen6",
-       "Zen7",
-       "Zen8",
-       "Zen9",
-       "Zen10"
+       "Be grateful.. and take a slow deep breath",
+       "Be kind.. and take a slow deep breath",
+       "Take 5 slow deep breaths",
+       "Be mindful of the present.. and take a slow deep breath",
+       "Let go of all distractions.. and take a slow deep breath"
 	],
 };
 
