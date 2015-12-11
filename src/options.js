@@ -70,8 +70,8 @@ function addMessage() {
 	}
 }
 
-// Remove messages from the list box. This list is what will be displayed
-// at random times as mindful moments
+// Remove messages from the list box. This list is what will be
+// displayed at random times as mindful moments
 function removeMessage(){
 	var listboxMsgs = document.getElementById("listboxMsgs");
 	var options = listboxMsgs.options;
@@ -90,8 +90,6 @@ function removeMessage(){
 		//select the first item in the list for ease of multiple removals
 		listboxMsgs.options[0].selected = true;
 		listboxMsgs.focus();
-		//TODO - there's some visual bug with using down arrow key 
-		//after reselection, can't figure out why
 	}
 }
 
@@ -121,9 +119,6 @@ function saveOptions(){
 
 		chrome.storage.sync.set(storageItems, function() {
 
-	        // Debug output to console
-	        debugOptions(storageItems);
-
 	        // Stop old alarm and create a new one based on saved settings
         	chrome.runtime.getBackgroundPage(function(eventPage){
         		eventPage.resetAlarmWithSavedSettings();
@@ -132,9 +127,6 @@ function saveOptions(){
 	        // Update status to let user know options were saved.
 		    writeStatusMessage("Options saved", false);
 	    });
-
-		//debug the options set
-		debugOptions();
 	}
 }
 
@@ -164,6 +156,7 @@ function writeStatusMessage(message, isError) {
 	}
 }
 
+// Ensure that the options being saved are formatted correctly
 function validateOptions(notifyStartTimeRange, notifyEndTimeRange, saMsgs) {
 	
 	var status = true;
