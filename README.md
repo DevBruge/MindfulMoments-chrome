@@ -44,7 +44,7 @@ This extension reminds the user to occasionally take mindful breaks.
     3. Alert box styling
     4. Icon 
     4. apply any outstanding refactoring 
-12. choose a software license, and add it (maybe MIT license?)
+12. ~~choose a software license, and add it (MIT license)~~
 100. Publish
 
 ####TEST CASES
