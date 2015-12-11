@@ -8,11 +8,11 @@ var defaultOptions = {
 	"notifyStartTimeRange": 15,
 	"notifyEndTimeRange": 20, 
 	"mindfulMessages": [
-       "Be grateful.. and take a slow deep breath",
-       "Be kind.. and take a slow deep breath",
+       "Be grateful... and take a slow deep breath",
+       "Be kind... and take a slow deep breath",
        "Take 5 slow deep breaths",
-       "Be mindful of the present.. and take a slow deep breath",
-       "Let go of all distractions.. and take a slow deep breath"
+       "Be mindful of the present... and take a slow deep breath",
+       "Let go of all distractions... and take a slow deep breath"
 	],
 };
 
