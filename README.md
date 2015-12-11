@@ -33,18 +33,17 @@ This extension reminds the user to occasionally take mindful breaks.
 3. ~~Alarm code sharing in one background page (read architecture overview) > Chris~~
 3. ~~force load the options page on extension install > Chris~~
 8. ~~Reschedule current alarm on options save event > Chris~~
-10. clean up code > Chris/MJ
-    1. remove all debug statements
-    2. remove all commented out code
-    3. decide preferred order of functions in JS files
-    4. apply any outstanding refactoring
+10. ~~clean up code > Chris/MJ~~
+    1. ~~remove all debug statements~~
+    2. ~~remove all commented out code~~
+    4. ~~apply any outstanding refactoring~~
 11. visual appeal
     1. ~~CSS style options page > Chris~~
-    2. Chrome notification style
-    3. Alert box styling
-    4. Icon 
-    4. apply any outstanding refactoring 
+    2. ~~Chrome notification style~~
+    3. ~~Alert box styling (chris investigated this, and it's not worth it w/o jQuery)~~
+    4. ~~Icon~~
 12. ~~choose a software license, and add it (MIT license)~~
+13. Move contents of this file to a TODO.md file, and put extension overview info in the README.md instead
 100. Publish
 
 ####TEST CASES
@@ -68,4 +67,7 @@ This extension reminds the user to occasionally take mindful breaks.
 - figure out best practices for removing options stored in local/sync storage
     - looks like options are maintained on reload/disable and renable
     - looks like options are removed on uninstall (aka unload, if unpacked)
-- refactor code to put defaultOptions in a JSON file (and load it into a background.html page) > MJ
+- refactor code to put defaultOptions in a JSON file (and load it into a background.html page)
+- don't retrieve options for each alarm individually
+    - can possibly set a flag in the background page indicating if the options have been changed or not
+    - this way, we only retrieve from Chrome sync if the flag says options have changed

@@ -2,7 +2,7 @@
 /** CONSTANTS **/
 const ALARM_NAME = "mindfulMoments";
 
-var defaultOptions = {
+const defaultOptions = {
 	"notifyOption": true, 
 	"soundOption": false,
 	"notifyStartTimeRange": 15,
@@ -30,8 +30,6 @@ createAlarm(true);
 //load the options page on first installed
 function loadOptionsOnInstall(details){
 
-	console.log("OnInstalledReason: " + details.reason);
-
 	if(details.reason == "install"){
 		chrome.runtime.openOptionsPage();
 	}
@@ -45,8 +43,6 @@ function createAlarm(isInitial) {
 		var minMinutes = parseInt(delayOptions.notifyStartTimeRange);
 		var maxMinutes = parseInt(delayOptions.notifyEndTimeRange);
 
-		console.log("minMinutes: " + minMinutes + ", maxMinutes: " + maxMinutes);
-
 		var delay; 
 
 		if(minMinutes == maxMinutes) {
@@ -59,10 +55,7 @@ function createAlarm(isInitial) {
 			"delayInMinutes": delay
 		};
 
-		console.log(JSON.stringify(alarmInfo));
-
 		chrome.alarms.create(ALARM_NAME, alarmInfo);
-		debugAlarms(isInitial);		
 	});
 }
 
@@ -77,18 +70,11 @@ function alarmHandler(alarm) {
 	
 	if(alarm.name == ALARM_NAME) {
 		
-		//TODO don't retrieve options for each alarm
-		//perhaps it's better to check a flag in background.html 
-		//that is turn on if options were changed, and once we update this file's representation of the options
-		//we turn off that flag
 		chrome.storage.sync.get(defaultOptions, function (options) {
 			
 			if(Object.keys(options).length === 0) {
-				throw "TODO - default OPTIONS not yet set";
+				throw "Default OPTIONS cannot be retrieved";
 			}
-
-			//Debug output to console  
-			console.log(JSON.stringify(options));
 
 			notifyUserOfMindfulBreak(options);
 
@@ -135,7 +121,6 @@ function notifyWithAlert(message) {
 }
 
 function notifyWithChromeNotifications(message) {
-	//chrome.notifications.clear("takeBreak", function () {});
 
 	var opt = {
 		type: "image",
